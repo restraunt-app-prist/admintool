@@ -1,6 +1,5 @@
 package kpi.fict.prist.admintool.config;
 
-import java.util.Arrays;
 import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,7 +36,7 @@ public class SecurityConfig {
             .csrf(CsrfConfigurer::disable)
             .cors(cors -> cors.configurationSource(corsConfigurationSource))
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/admin/auth/**").permitAll()
+                .requestMatchers("/auth/**").permitAll()
                 .anyRequest().authenticated())
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
             .exceptionHandling(eh -> eh.authenticationEntryPoint((req, rsp, e) -> rsp.sendError(401)));

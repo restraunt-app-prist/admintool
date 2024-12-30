@@ -14,7 +14,7 @@ import kpi.fict.prist.admintool.auth.dto.LoginResponse;
 import kpi.fict.prist.admintool.common.JwtUtil;
 
 @RestController
-@RequestMapping("/admin/auth")
+@RequestMapping("auth")
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
