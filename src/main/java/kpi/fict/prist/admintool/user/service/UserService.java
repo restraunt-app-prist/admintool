@@ -28,7 +28,7 @@ public class UserService {
 
     public Optional<UserWithOrdersResponse> findById(String userId) {
         return userRepository.findById(userId).map(user -> {
-            List<OrderEntity> orders = orderRepository.findByUserExternalId(userId);
+            List<OrderEntity> orders = orderRepository.findByUserExternalId(user.getExternalId());
             return mapToDTO(user, orders);
         });
     }
