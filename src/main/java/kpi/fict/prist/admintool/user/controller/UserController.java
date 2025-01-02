@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import kpi.fict.prist.admintool.user.dto.UserWithOrdersResponse;
 import kpi.fict.prist.admintool.user.entity.UserProfileEntity;
 import kpi.fict.prist.admintool.user.service.UserService;
 
@@ -31,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<UserProfileEntity> getUserById(@PathVariable String id) {
+    public ResponseEntity<UserWithOrdersResponse> getUserById(@PathVariable String id) {
         return userService.findById(id)
             .map(ResponseEntity::ok)
             .orElseGet(() -> ResponseEntity.notFound().build());
